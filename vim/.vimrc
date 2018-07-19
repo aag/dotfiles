@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Other plugins
 Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'kien/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
