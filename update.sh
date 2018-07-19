@@ -2,4 +2,4 @@
 
 git submodule update # Update Vundle
 stow -R -v -t ~/ vim
-vim -n -es -c "set nomore" -c ":PluginInstall!"
+vim -n -c "set nomore" -c ":PluginInstall!" -c ":q" -c ":q" -c ":q"
