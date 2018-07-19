@@ -16,3 +16,6 @@ vim -n -c "set nomore" -c ":PluginInstall!" -c ":q" -c ":q" -c ":q"
 # Set up bash dotfiles
 stow --restow --verbose --target="$HOME/" bash
 
+# Set up git config files
+stow --restow --verbose --target="$HOME/" git
+

@@ -1,0 +1,14 @@
+[include]
+    ; For the [user] and [github] sections
+    path = ~/.gitconfig.local
+[core]
+    excludesfile = ~/.gitignore.global
+[color]
+    ui = auto
+[push]
+    default = current
+[diff]
+    renames = true
+    algorithm = patience
+[branch]
+    autosetupmerge = true
