@@ -1,5 +1,35 @@
-call pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required by Vundle
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Other plugins
+Plugin 'chriskempson/base16-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'rust-lang/rust.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-commentary'
+Plugin 'jremmen/vim-ripgrep'
+Plugin 'tpope/vim-sensible'
+" Plugin 'ap/vim-css-color'
+" Plugin 'fholgado/minibufexpl.vim'
+" Plugin 'tomtom/quickfixsigns_vim'
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'cespare/vim-toml'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required by Vundle
+filetype plugin indent on    " required by Vundle
+
+" Settings
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -8,15 +38,15 @@ set number
 set autoindent
 set smarttab
 set showmatch
-" set hidden
+set hidden
 
 " set ignorecase
 " set smartcase
 " set hlsearch
 " set incsearch
 
-" set history=1024
-" set undolevels=1024
+" set history=64
+" set undolevels=64
 " set title
 " set visualbell
 
@@ -83,8 +113,7 @@ set colorcolumn=80
 " let g:syntastic_loc_list_height=4 " Set the default size of the location list
 
 " vim-powerline settings
-"set nocompatible   " Disable vi-compatibility
-"set laststatus=2   " Always show the statusline
+set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 " vim-airline settings
@@ -95,9 +124,6 @@ if has('gui_running')
   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 13
 endif
 
-" set filetype=on
-" filetype plugin on
-" filetype indent on
 " syntax on
 
 "if &t_Co >= 256 || has("gui_running")
