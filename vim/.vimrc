@@ -11,20 +11,20 @@ Plugin 'VundleVim/Vundle.vim'
 " Other plugins
 Plugin 'chriskempson/base16-vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'kien/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'jremmen/vim-ripgrep'
+Plugin 'kien/ctrlp.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-sensible'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-commentary'
-Plugin 'jremmen/vim-ripgrep'
-Plugin 'tpope/vim-sensible'
 " Plugin 'ap/vim-css-color'
+" Plugin 'cespare/vim-toml'
 " Plugin 'fholgado/minibufexpl.vim'
 " Plugin 'tomtom/quickfixsigns_vim'
 " Plugin 'vim-syntastic/syntastic'
-" Plugin 'cespare/vim-toml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -41,19 +41,19 @@ set smarttab
 set showmatch
 set hidden
 
-" set ignorecase
-" set smartcase
-" set hlsearch
-" set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 
-" set history=64
-" set undolevels=64
-" set title
-" set visualbell
+set history=64
+set undolevels=64
+set title
+set visualbell
 
 " Syntax highlighting can cause searching in a file to be slow if these are enabled
-" set nocursorcolumn
-" set nocursorline
+set nocursorcolumn
+set nocursorline
 
 " Disable folding
 set nofoldenable
@@ -66,7 +66,7 @@ let mapleader = ","
 
 map nt :NERDTree<CR>
 "map <C-T> :CtrlP<CR>
-" Remap ctrlP to CTRL-N to be closer to the IntelliJ shortcut
+" Remap ctrlP to CTRL-N to be closer to the IntelliJ shortcuts
 let g:ctrlp_map = '<c-s-n>'
 map <c-e> :CtrlPBuffer<CR>
 
@@ -129,12 +129,9 @@ endif
 
 "if &t_Co >= 256 || has("gui_running")
 if has("gui_running")
-"    colorscheme ir_blackmod
-    " set background=light
     set background=dark
-    " colorscheme solarized
-    " colorscheme Tomorrow-Night
     colorscheme base16-tomorrow-night
+    " colorscheme Tomorrow-Night
     " colorscheme elflord
 else
     colorscheme Tomorrow-Night
