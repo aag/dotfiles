@@ -10,3 +10,7 @@ stow -R -v -t ~/ vim
 
 # Install or update all vim plugins using Vundle
 vim -n -c "set nomore" -c ":PluginInstall!" -c ":q" -c ":q" -c ":q"
+
+# Set up bash dotfiles
+stow -R -v -t ~/ bash
+
