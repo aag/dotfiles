@@ -6,11 +6,13 @@ git submodule sync
 git submodule update
 
 # Set up vim dotfiles
-stow -R -v -t ~/ vim
+stow --restow --verbose --target="$HOME/" vim
 
 # Install or update all vim plugins using Vundle
+# -n = no swap file
+# -c = execute command
 vim -n -c "set nomore" -c ":PluginInstall!" -c ":q" -c ":q" -c ":q"
 
 # Set up bash dotfiles
-stow -R -v -t ~/ bash
+stow --restow --verbose --target="$HOME/" bash
 
