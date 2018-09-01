@@ -151,7 +151,7 @@ alias rxvt='rxvt -vb -bg black -fg white -sb -sr -sl 1024'
 
 # Other aliases
 alias m='meld . &'
-alias passes='pwgen -cnsB 32 9'
+alias passes='pwgen -cnsB 24 9'
 
 
 # Cargo
