@@ -125,8 +125,6 @@ if has('gui_running')
   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 13
 endif
 
-" syntax on
-
 "if &t_Co >= 256 || has("gui_running")
 if has("gui_running")
     set background=dark
