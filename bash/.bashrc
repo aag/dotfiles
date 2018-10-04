@@ -177,3 +177,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Initialize rbenv if it's installed
+if [ -d "$HOME/.rbenv/bin" ] ; then
+    eval "$($HOME/.rbenv/bin/rbenv init -)"
+fi
+
