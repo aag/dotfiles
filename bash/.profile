@@ -36,3 +36,8 @@ if [ -d "$HOME/.rbenv/bin" ] ; then
     PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
+# set PATH so it contains the Groovy bin dir if it exists
+if [ -d "/opt/gradle/gradle-3.4.1/bin" ] ; then
+    PATH="/opt/gradle/gradle-3.4.1/bin:$PATH"
+fi
+

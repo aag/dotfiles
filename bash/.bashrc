@@ -182,3 +182,8 @@ if [ -d "$HOME/.rbenv/bin" ] ; then
     eval "$($HOME/.rbenv/bin/rbenv init -)"
 fi
 
+# Initialize jenv if it's installed
+if [ -d "$HOME/.jenv/bin" ] ; then
+    source "$HOME/.jenv/bin/jenv-init.sh" && source "$HOME/.jenv/commands/completion.sh"
+fi
+
