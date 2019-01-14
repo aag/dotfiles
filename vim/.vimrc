@@ -149,6 +149,12 @@ endif
 " autocmd BufNewFile,BufRead *.scss set filetype=scss
 " autocmd BufNewFile,BufRead *.sass set filetype=sass
 
+" Set line marker to 100 for rust files
+autocmd filetype rust set colorcolumn=100
+
+" Run rustfmt on save
+let g:rustfmt_autosave = 1
+
 " Set Mozilla JSM files to use the javascript file type
 " au BufNewFile,BufRead *.jsm set filetype=javascript
 
