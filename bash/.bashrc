@@ -128,6 +128,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# directory navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 # git aliases
 alias ga='git add'
 alias gaa='git add .'
@@ -147,7 +152,6 @@ alias hp='hg pull -u'
 
 # RXVT
 alias rxvt='rxvt -vb -bg black -fg white -sb -sr -sl 1024'
-
 
 # Other aliases
 alias m='meld . &'
