@@ -31,6 +31,11 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+# set PATH so it contains go's bin if it exists
+if [ -d "/usr/local/go/bin" ] ; then
+    PATH="$PATH:/usr/local/go/bin"
+fi
+
 # set PATH so it contains Ruby rbenv's bin if it exists
 if [ -d "$HOME/.rbenv/bin" ] ; then
     PATH="$HOME/.rbenv/bin:$PATH"
