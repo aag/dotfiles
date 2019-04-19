@@ -1,4 +1,10 @@
+*.class
+*.pyc
+*.swp
 .*.swp
 .*.swo
 .idea
 .remote-sync.json
+.svn
+tags
+
