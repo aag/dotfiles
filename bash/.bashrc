@@ -74,12 +74,12 @@ CODE_NORM=$'\[\033[m\]'
 
 function local_datetime {
     # Get the date string in the Eastern time zone
-    #EDT_DATETIME="$(env TZ=EST5EDT date +"%a %b %d %r")"
-    #echo $CET_DATETIME
+    EDT_DATETIME="$(env TZ=EST5EDT date +"%a %b %d %r")"
+    echo $EDT_DATETIME
 
     # Get the date string in the Central European Time time zone
-    CET_DATETIME="$(env TZ=CET date +"%a %b %d %r")"
-    echo $CET_DATETIME
+    #CET_DATETIME="$(env TZ=CET date +"%a %b %d %r")"
+    #echo $CET_DATETIME
 }
 
 function git_prompt_char {
