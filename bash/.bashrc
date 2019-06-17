@@ -162,6 +162,11 @@ alias rxvt='rxvt -vb -bg black -fg white -sb -sr -sl 1024'
 alias m='meld . &'
 alias passes='pwgen -cnsB 24 9'
 
+# alias to upload the image in the clipboard to Phabricator
+if which arc >/dev/null 2>&1 ; then
+    alias arcclip='tmpfile=/tmp/screenshot.png; xclip -selection clipboard -t image/png -o > $tmpfile && arc upload $tmpfile; rm -f $tmpfile'
+fi
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 #alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
