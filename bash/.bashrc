@@ -201,3 +201,10 @@ if [ -d "$HOME/.jenv/bin" ] ; then
     source "$HOME/.jenv/bin/jenv-init.sh" && source "$HOME/.jenv/commands/completion.sh"
 fi
 
+# Initialize pyenv if it's installed
+if [ -d "$HOME/.pyenv/bin" ] ; then
+    PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
