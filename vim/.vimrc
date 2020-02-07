@@ -22,11 +22,11 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'ap/vim-css-color'
-" Plugin 'cespare/vim-toml'
+Plugin 'ap/vim-css-color'
+Plugin 'cespare/vim-toml'
 " Plugin 'fholgado/minibufexpl.vim'
 " Plugin 'tomtom/quickfixsigns_vim'
-" Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
