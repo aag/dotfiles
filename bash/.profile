@@ -36,7 +36,11 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# set PATH so it contains go's bin if it exists
+# set PATH so it contains go's bin dirs if they exist
+if [ -d "$HOME/go/bin" ] ; then
+    PATH="$PATH:$HOME/go/bin"
+fi
+
 if [ -d "/usr/local/go/bin" ] ; then
     PATH="$PATH:/usr/local/go/bin"
 fi
