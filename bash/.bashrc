@@ -215,3 +215,16 @@ if [ -d "$HOME/.nvm" ] ; then
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+# Add fzf keybindings if they exist
+if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] ; then
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+
+# Add extra shell functions
+if [ -f "$HOME/bin/functions.sh" ] ; then
+    source "$HOME/bin/functions.sh"
+
+    alias gcf='checkout-local-branch-fzf'
+fi
+
