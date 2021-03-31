@@ -34,6 +34,7 @@ fi
 # set PATH so it contains Rust cargo's bin if it exists
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
+    source "$HOME/.cargo/env"
 fi
 
 # set PATH so it contains go's bin dirs if they exist
