@@ -162,6 +162,13 @@ alias rxvt='rxvt -vb -bg black -fg white -sb -sr -sl 1024'
 alias m='meld . &'
 alias passes='pwgen -cnsB 24 9'
 
+# Khan Aliases
+if [ -d "$HOME/khan/webapp" ] ; then
+    alias kk='cd $HOME/khan/webapp'
+fi
+
+
+
 # alias to upload the image in the clipboard to Phabricator
 if which arc >/dev/null 2>&1 ; then
     alias arcclip='tmpfile=/tmp/screenshot.png; xclip -selection clipboard -t image/png -o > $tmpfile && arc upload $tmpfile; rm -f $tmpfile'
