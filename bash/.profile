@@ -31,9 +31,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# set PATH so it contains Rust cargo's bin if it exists
-if [ -d "$HOME/.cargo/bin" ] ; then
-    PATH="$HOME/.cargo/bin:$PATH"
+# Use env file to add cargo to PATH if it exists
+if [ -f "$HOME/.cargo/env" ] ; then
     source "$HOME/.cargo/env"
 fi
 
