@@ -233,5 +233,6 @@ if [ -f "$HOME/bin/functions.sh" ] ; then
     source "$HOME/bin/functions.sh"
 
     alias gcf='checkout-local-branch-fzf'
+    alias gbl='list-branch-commits-not-on-master'
 fi
 
