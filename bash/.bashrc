@@ -236,5 +236,6 @@ if [ -f "$HOME/bin/functions.sh" ] ; then
 
     alias gcf='checkout-local-branch-fzf'
     alias gbl='list-branch-commits-not-on-master'
+    alias gpob='git push origin $(git branch --show-current)'
 fi
 
