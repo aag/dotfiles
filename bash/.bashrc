@@ -166,7 +166,7 @@ alias passes='pwgen -cnsB 24 9'
 if [ -d "$HOME/khan/webapp" ] ; then
     alias kk='cd $HOME/khan/webapp'
     alias yf='yarn --cwd services/static flow'
-    alias buildjs='cd services/static && npx webpack --config webpack/configs/webpack.dev.js --progress'
+    alias buildjs='pushd services/static; npx webpack --config webpack/configs/webpack.dev.js --progress; popd'
 fi
 
 
