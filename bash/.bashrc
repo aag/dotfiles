@@ -229,6 +229,11 @@ fi
 if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] ; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
 fi
+# Add fzf bash completion if file exists
+if [ -f /usr/share/doc/fzf/examples/completion.bash ] ; then
+    source /usr/share/doc/fzf/examples/completion.bash
+fi
+
 
 # Add extra shell functions
 if [ -f "$HOME/bin/functions.sh" ] ; then
