@@ -1,85 +1,105 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required by Vundle
+"
+" A (not so) minimal vimrc.
+" Mostly taken from https://github.com/mhinz/vim-galore
+"
+" You want Vim, not vi. When Vim finds a vimrc, 'nocompatible' is set anyway.
+" We set it explicitely to make our position clear!
+set nocompatible
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Install vim-plug if it isn't installed yet
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Configure plugins with vim-plug
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'chriskempson/base16-vim'
 
-" Other plugins
-Plugin 'airblade/vim-gitgutter'
-Plugin 'chriskempson/base16-vim'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'fatih/vim-go'
-Plugin 'jremmen/vim-ripgrep'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-sensible'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ap/vim-css-color'
-Plugin 'cespare/vim-toml'
-" Plugin 'fholgado/minibufexpl.vim'
-" Plugin 'tomtom/quickfixsigns_vim'
-Plugin 'vim-syntastic/syntastic'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
+call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required by Vundle
-filetype plugin indent on    " required by Vundle
+" Things already included in vim-sensible
+"filetype plugin indent on  " Load plugins according to detected filetype.
+"syntax on                  " Enable syntax highlighting.
+"set autoindent             " Indent according to previous line.
+"set backspace   =indent,eol,start  " Make backspace work as you would expect.
+"set laststatus  =2         " Always show statusline.
+"set display     =lastline  " Show as much as possible of the last line.
 
-" Settings
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab
-set number
-set autoindent
-set smarttab
-set showmatch
-set hidden
+set expandtab              " Use spaces instead of tabs.
+set softtabstop =4         " Tab key indents by 4 spaces.
+set shiftwidth  =4         " >> indents by 4 spaces.
+set shiftround             " >> indents to next multiple of 'shiftwidth'.
 
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
+set hidden                 " Switch between buffers without having to save first.
 
-set history=64
-set undolevels=64
-set title
-set visualbell
+set showmode               " Show current mode in command-line.
+set showcmd                " Show already typed keys when more are expected.
 
-" Syntax highlighting can cause searching in a file to be slow if these are enabled
-set nocursorcolumn
-set nocursorline
+set incsearch              " Highlight while searching with / or ?.
+set hlsearch               " Keep matches highlighted.
 
-" Disable folding
-set nofoldenable
+set ttyfast                " Faster redrawing.
+set lazyredraw             " Only redraw when necessary.
 
-" In gvim, disable the buttons toolbar
-set guioptions-=T
+set splitbelow             " Open new windows below the current window.
+set splitright             " Open new windows right of the current window.
+
+set wrapscan               " Searches wrap around end-of-file.
+set report      =0         " Always report changed lines.
+set synmaxcol   =200       " Only highlight the first 200 columns.
+
+set list                   " Show non-printable characters.
+
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+else
+  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+endif
+
+" Put all temporary files under the same directory.
+" https://github.com/mhinz/vim-galore#temporary-files
+set backup
+set backupdir   =$HOME/.vim/files/backup/
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap//
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo/
+set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+
+""""""""""""""""""""""""""
+" My settings start here "
+""""""""""""""""""""""""""
+set ignorecase      " Do case insensitive search
+set smartcase       " Do case sensitive search if the search includes uppercase chars
+set showmatch       " When typing a bracket, briefly jump to its match
+set visualbell      " Flash the screen when an error occurs
+set title           " Set window title to current filename and path
+set undolevels=1000 " Allow undo up to 1000 times. Matches the history setting in vim-sensible
+set nofoldenable    " Disable folding
+
+if has('gui_running')
+    set background=dark
+    set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 13
+    colorscheme base16-tomorrow-night
+else
+    colorscheme elflord
+endif
 
 " Set the leader key to , instead of the default \
 let mapleader = ","
 
-map nt :NERDTree<CR>
-"map <C-T> :CtrlP<CR>
-" Remap ctrlP to CTRL-N to be closer to the IntelliJ shortcuts
-let g:ctrlp_map = '<c-s-n>'
-map <c-e> :CtrlPBuffer<CR>
-
-" Tell CTRL-P to use ripgrep if it's installed
-" The main advantage here is the way it respects .gitignore and .ignore, but
-" it's also generally faster than CTRL-P itself.
-if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  let g:ctrlp_use_caching = 0
-endif
+" In gvim, disable the buttons toolbar
+set guioptions-=T
 
 " Switch to previous buffer with ",b"
 map <leader>b :b#<CR>
@@ -92,90 +112,20 @@ vnoremap > >gv
 nmap <leader>c<Space> gcc
 vmap <leader>c<Space> gc
 
-" Draw a vertical line in the 80th column
-set colorcolumn=80
+" FZF
+" Set the size and location of the fzf window
+let g:fzf_layout = {'down': '70%'}
+" Preview window on the upper side of the window with 40% height.
+" ctrl-/ should toggle the preview window, but it doesn't work
+" for some reason.
+let g:fzf_preview_window = ['up:50%', 'ctrl-/'] 
+" CTRL-N to search files
+map <C-N> :Files<CR>
+" CTRL-E to search open buffers
+map <C-e> :Buffers<CR>
 
-" Set up the status line
-" set statusline=%t             "tail of the filename
-" set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
-" set statusline+=%{&ff}]       "file format
-" set statusline+=%h            "help file flag
-" set statusline+=%m            "modified flag
-" set statusline+=%r            "read only flag
-" set statusline+=%y            "filetype
-" set statusline+=%=            "left/right separator
-" set statusline+=%#warningmsg# " warning highlight color
-" set statusline+=%{SyntasticStatuslineFlag()} " syntastic flags, if they exist
-" set statusline+=%*            "switch back to normal statusline highlight
-" set statusline+=%c,           "cursor column
-" set statusline+=%l/%L         "cursor line/total lines
-" set statusline+=\ %P          "percent through file
 
-" Syntastic settings
-" let g:syntastic_auto_loc_list=1 " Automatically open and close the location list
-" let g:syntastic_loc_list_height=4 " Set the default size of the location list
-
-" vim-powerline settings
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-
-" vim-airline settings
-let g:airline_powerline_fonts = 1
-let g:airline_theme='tomorrow'
-
-if has('gui_running')
-  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 13
-endif
-
-"if &t_Co >= 256 || has("gui_running")
-if has("gui_running")
-    set background=dark
-    colorscheme base16-tomorrow-night
-    " colorscheme Tomorrow-Night
-    " colorscheme elflord
-else
-    colorscheme Tomorrow-Night
-    " colorscheme elflord
-endif
-
-" autocmd filetype ruby set shiftwidth=2
-" autocmd filetype ruby set tabstop=2
-" autocmd filetype ruby set softtabstop=2
-
-" autocmd filetype python set shiftwidth=4
-" autocmd filetype python set tabstop=4
-" autocmd filetype python set softtabstop=4
-
-" Set SASS and SCSS files to be the CSS file type
-" autocmd BufNewFile,BufRead *.scss set filetype=scss
-" autocmd BufNewFile,BufRead *.sass set filetype=sass
-
-" Set line marker to 100 for rust files
-autocmd filetype rust set colorcolumn=100
-
-" Run rustfmt on save
-let g:rustfmt_autosave = 1
-
-" Set Mozilla JSM files to use the javascript file type
-" au BufNewFile,BufRead *.jsm set filetype=javascript
-
-" Go syntax
-" au BufRead,BufNewFile *.go set filetype=go
-
-" Recognize .md files as Markdown, not Modula-2
-" autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" Rust :make support
-" autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
-
-" Perl Template Toolkit syntax
-" au BufNewFile,BufRead *.tt2 setf tt2html
-" au BufNewFile,BufRead *.tt setf tt2html
-
-" Fix HTML indenting
-" autocmd FileType html setlocal indentkeys-=*<Return>
-
-" Start NERDTree automatically
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+autocmd filetype ruby set shiftwidth=2
+autocmd filetype ruby set tabstop=2
+autocmd filetype ruby set softtabstop=2
 

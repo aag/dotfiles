@@ -1,4 +1,8 @@
+vim/.vim/.netrwhist
+vim/.vim/autoload/*
 vim/.vim/bundle/*
+vim/.vim/files/*
+vim/.vim/plugged/*
 vim/.vim/view/*
 !vim/.vim/bundle/Vundle.vim
 
