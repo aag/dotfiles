@@ -19,6 +19,7 @@ Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
 
 Plug 'editorconfig/editorconfig-vim'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
