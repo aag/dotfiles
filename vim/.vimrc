@@ -116,6 +116,12 @@ vnoremap > >gv
 nmap <leader>c<Space> gcc
 vmap <leader>c<Space> gc
 
+" Make netrw easier to use
+let g:netrw_banner       = 0    " Don't show the banner
+let g:netrw_keepdir      = 0    " The current directory tracks the browsing directory
+let g:netrw_liststyle    = 3    " Use the tree view
+let g:netrw_sort_options = 'i'  " Use case-insensitive sort
+
 " FZF
 " Set the size and location of the fzf window
 let g:fzf_layout = {'down': '70%'}
