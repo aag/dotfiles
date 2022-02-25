@@ -59,7 +59,6 @@ set synmaxcol   =200       " Only highlight the first 200 columns.
 
 set list                   " Show non-printable characters.
 
-set number                 " Show absolute line numbers
 
 if has('multi_byte') && &encoding ==# 'utf-8'
   let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
@@ -89,14 +88,16 @@ set visualbell      " Flash the screen when an error occurs
 set title           " Set window title to current filename and path
 set undolevels=1000 " Allow undo up to 1000 times. Matches the history setting in vim-sensible
 set nofoldenable    " Disable folding
+set number          " Show absolute line numbers
 
-if has('gui_running')
+set termguicolors   " Allow 24-bit color in the terminal. Requires ISO-8613-3 compatible terminal
+" if has('gui_running')
     set background=dark
     set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 13
     colorscheme base16-tomorrow-night
-else
-    colorscheme elflord
-endif
+" else
+"     colorscheme elflord
+" endif
 
 " Set the leader key to , instead of the default \
 let mapleader = ","
