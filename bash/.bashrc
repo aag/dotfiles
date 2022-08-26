@@ -162,6 +162,11 @@ alias rxvt='rxvt -vb -bg black -fg white -sb -sr -sl 1024'
 alias m='meld . &'
 alias passes='pwgen -cnsB 24 9'
 
+# Alias the fd from the Ubuntu repo to the proper name
+if [ -f "/usr/bin/fdfind" ]; then
+    alias fd='fdfind'
+fi
+
 # Khan Aliases
 if [ -d "$HOME/khan/webapp" ] ; then
     alias kk='cd $HOME/khan/webapp'
