@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Install or update Vundle
-git submodule init
-git submodule sync
-git submodule update
-
 # Set up vim dotfiles
 stow --restow --verbose --target="$HOME/" vim
 
@@ -14,12 +9,9 @@ mkdir -p "$HOME/.vim/files/info"
 mkdir -p "$HOME/.vim/files/swap"
 mkdir -p "$HOME/.vim/files/undo"
 
-# Install or update all vim plugins using Vundle
+# Install or update vim plugins using vim-plug
 # -n = no swap file
 # -c = execute command
-#vim -n -c "set nomore" -c ":PluginInstall!" -c ":q" -c ":q" -c ":q"
-
-# Install or update vim plugins using vim-plug
 vim -n -c "set nomore" -c ":PlugUpdate" -c ":q" -c ":q" -c ":q"
 
 # Set up bash dotfiles
