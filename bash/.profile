@@ -62,8 +62,6 @@ if [ -d "$HOME/.nvm" ] ; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# set PATH so it contains the diff-so-fancy dir if it exists
-if [ -d "/opt/diff-so-fancy" ] ; then
-    PATH="/opt/diff-so-fancy:$PATH"
-fi
+# Add fzf keybindings
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

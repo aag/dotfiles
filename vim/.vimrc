@@ -3,7 +3,7 @@
 " Mostly taken from https://github.com/mhinz/vim-galore
 "
 " You want Vim, not vi. When Vim finds a vimrc, 'nocompatible' is set anyway.
-" We set it explicitely to make our position clear!
+" We set it explicitly to make our position clear!
 set nocompatible
 
 " Install vim-plug if it isn't installed yet
@@ -93,7 +93,8 @@ set number          " Show absolute line numbers
 set termguicolors   " Allow 24-bit color in the terminal. Requires ISO-8613-3 compatible terminal
 " if has('gui_running')
     set background=dark
-    set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 13
+    " set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 13
+    set guifont=InconsolataGo\ Nerd\ Font\ Regular\ 16
     colorscheme base16-tomorrow-night
 " else
 "     colorscheme elflord
