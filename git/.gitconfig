@@ -18,7 +18,7 @@
 [alias]
     unstageall = restore --staged .
 [delta]
-    syntax-theme = "dracula"
+    syntax-theme = "Dracula"
     features = unobtrusive-line-numbers decorations
 [delta "unobtrusive-line-numbers"]
     line-numbers = true
