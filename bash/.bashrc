@@ -230,15 +230,17 @@ if [ -d "$HOME/.nvm" ] ; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# Add fzf keybindings if they exist
+# Add fzf keybindings if they exist (Ubuntu package)
 if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] ; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
 fi
-# Add fzf bash completion if file exists
+# Add fzf bash completion if file exists (Ubuntu package)
 if [ -f /usr/share/doc/fzf/examples/completion.bash ] ; then
     source /usr/share/doc/fzf/examples/completion.bash
 fi
 
+# Set up fzf (installed in home directory from git)
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Add extra shell functions
 if [ -f "$HOME/bin/functions.sh" ] ; then
