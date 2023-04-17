@@ -175,12 +175,6 @@ if [ -d "$HOME/khan/webapp" ] ; then
 fi
 
 
-
-# alias to upload the image in the clipboard to Phabricator
-if which arc >/dev/null 2>&1 ; then
-    alias arcclip='tmpfile=/tmp/screenshot.png; xclip -selection clipboard -t image/png -o > $tmpfile && arc upload $tmpfile; rm -f $tmpfile'
-fi
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 #alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -230,13 +224,24 @@ if [ -d "$HOME/.nvm" ] ; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# Add fzf keybindings if they exist (Ubuntu package)
+# Add fzf keybindings if they exist
+# Ubuntu
 if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] ; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
 fi
-# Add fzf bash completion if file exists (Ubuntu package)
+# OpenSUSE
+if [ -f /usr/share/bash-completion/completions/fzf-key-bindings ] ; then
+    source /usr/share/bash-completion/completions/fzf-key-bindings
+fi
+
+# Add fzf bash completion if file exists
+# Ubuntu
 if [ -f /usr/share/doc/fzf/examples/completion.bash ] ; then
     source /usr/share/doc/fzf/examples/completion.bash
+fi
+# OpenSUSE
+if [ -f /usr/share/bash-completion/completions/fzf ] ; then
+    source /usr/share/bash-completion/completions/fzf
 fi
 
 # Set up fzf (installed in home directory from git)
@@ -251,3 +256,4 @@ if [ -f "$HOME/bin/functions.sh" ] ; then
     alias gpob='git push origin $(git branch --show-current)'
 fi
 
+. "$HOME/.cargo/env"
