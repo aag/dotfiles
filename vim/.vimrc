@@ -130,10 +130,12 @@ let g:fzf_layout = {'down': '70%'}
 " ctrl-/ should toggle the preview window, but it doesn't work
 " for some reason.
 let g:fzf_preview_window = ['up:50%', 'ctrl-/'] 
-" CTRL-N to search files
+" CTRL-N to search for files by name
 map <C-N> :Files<CR>
-" CTRL-E to search open buffers
+" CTRL-E to search for open buffers by filename
 map <C-e> :Buffers<CR>
+" CTRL-f to search the contents of all files using ripgrep
+map <C-f> :Rg<CR>
 
 
 autocmd filetype ruby set shiftwidth=2
