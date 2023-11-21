@@ -256,4 +256,3 @@ if [ -f "$HOME/bin/functions.sh" ] ; then
     alias gpob='git push origin $(git branch --show-current)'
 fi
 
-. "$HOME/.cargo/env"
