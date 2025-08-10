@@ -36,6 +36,7 @@ call plug#end()
 
 set expandtab              " Use spaces instead of tabs.
 set softtabstop =4         " Tab key indents by 4 spaces.
+set tabstop     =4
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 
