@@ -35,6 +35,11 @@ fi
 if [ -f "$HOME/.cargo/env" ] ; then
     source "$HOME/.cargo/env"
 fi
+#
+# Add fzf keybindings
+if [ -f "$HOME/.fzf.bash" ] ; then
+    source "$HOME/.fzf.bash"
+fi
 
 # set PATH so it contains go's bin dirs if they exist
 if [ -d "$HOME/go/bin" ] ; then
@@ -75,10 +80,6 @@ fi
 if [ -d "/opt/rocm-6.2.0/bin" ] ; then
     PATH=$PATH:/opt/rocm-6.2.0/bin
 fi
-
-# Add fzf keybindings
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 
 # Add LM Studio to PATH if it exists
 if [ -d "/home/adam/.cache/lm-studio/bin" ] ; then
