@@ -23,3 +23,18 @@ function list-branch-commits-not-on-master() {
         echo "Error: could not get current branch name"
     fi
 }
+
+function list-branch-commits-not-on-main() {
+    local current_branch
+    current_branch=$(git branch --show-current)
+
+    if [ -n "$current_branch" ]; then
+        if [ $current_branch = "main" ]; then
+            echo "Error: Cannot compare main branch to itself"
+        fi
+
+        git log --no-merges $current_branch ^main
+    else
+        echo "Error: could not get current branch name"
+    fi
+}

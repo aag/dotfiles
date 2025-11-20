@@ -169,7 +169,8 @@ fi
 
 # Khan Aliases
 if [ -d "$HOME/khan/webapp" ] ; then
-    alias kk='cd $HOME/khan/webapp'
+    alias kb='cd $HOME/khan/webapp'
+    alias kf='cd $HOME/khan/frontend'
     alias yf='yarn --cwd services/static flow'
     alias buildjs='pushd services/static; npx webpack --config webpack/configs/webpack.dev.js --progress; popd'
 fi
@@ -253,6 +254,7 @@ if [ -f "$HOME/bin/functions.sh" ] ; then
 
     alias gcf='checkout-local-branch-fzf'
     alias gbl='list-branch-commits-not-on-master'
+    alias gbmain='list-branch-commits-not-on-main'
     alias gpob='git push origin $(git branch --show-current)'
 fi
 
