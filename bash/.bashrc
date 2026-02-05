@@ -256,5 +256,7 @@ if [ -f "$HOME/bin/functions.sh" ] ; then
     alias gbl='list-branch-commits-not-on-master'
     alias gbmain='list-branch-commits-not-on-main'
     alias gpob='git push origin $(git branch --show-current)'
+    
+    alias gemini='mise exec node@24 -- npx @google/gemini-cli'
 fi
 
