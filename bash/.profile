@@ -71,11 +71,6 @@ if [ -d "$HOME/.nvm" ] ; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# Activate mise if it's installed
-if [ -f "$HOME/.local/bin/mise" ] ; then
-    eval "$(~/.local/bin/mise activate)"
-fi
-
 # Add ROCm bin dir if it exists
 if [ -d "/opt/rocm-6.2.0/bin" ] ; then
     PATH=$PATH:/opt/rocm-6.2.0/bin
